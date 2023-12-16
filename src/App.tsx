@@ -2,13 +2,8 @@ import axios from "axios";
 import { useState } from "react";
 import "./App.css";
 import { Todo } from "./Todo"
+import { TodoType } from "./types/todo";
 
-type TodoType = {
-  userId: number;
-  id: number;
-  title: string;
-  completed: boolean;
-};//TodoType型はuserId、id、title、completed というプロパティをもつオブジェクト型
 
 export default function App() {
   const [todos, setTodos ] = useState<Array<TodoType>>([]);//todos変数にTodoType型の配列を割り当てている
@@ -24,7 +19,11 @@ export default function App() {
     <div className="App">
       <button onClick={onClickFetchData}>データ取得</button>
       {todos.map((todo) =>(
-        <Todo title={todo.title} userId={todo.userId} completed={todo.completed} />//取得するデータの型を定義していないとundefiedとなってしまう
+        <Todo key={todo.id} 
+              title={todo.title} 
+              userId={todo.userId} 
+              completed={todo.completed} 
+              />//取得するデータの型を定義していないとundefiedとなってしまう
       ))}
     </div>
   );
