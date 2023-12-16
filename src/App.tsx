@@ -24,7 +24,7 @@ export default function App() {
     <div className="App">
       <button onClick={onClickFetchData}>データ取得</button>
       {todos.map((todo) =>(
-        <Todo title={todo.title} userid={todo.userId} />//取得するデータの型を定義していないとundefiedとなってしまう
+        <Todo title={todo.title} userId={todo.userId} completed={todo.completed} />//取得するデータの型を定義していないとundefiedとなってしまう
       ))}
     </div>
   );
