@@ -18,7 +18,7 @@ export default function App() {
     axios
     .get<Array<TodoType>>("https://jsonplaceholder.typicode.com/todos")
     .then((res) => {
-      setTodos(res.data);//todos変数にrea.data配列が代入される
+      setTodos(res.data);//todos変数にres.data配列が代入される
       console.log(res);
   });
   };
